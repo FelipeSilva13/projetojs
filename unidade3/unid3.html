@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <TItle>UNIDADE 3</TItle>
+    <Link rel="stylesheet" type="text/css" href="_cssunid3/index.css"/>
+    <nav id="menu">
+   
+        
+        <h1 id="menu">MENU</h1>
+        <ul type="disc">
+            <li><a href="../unidade1/unid1.html"><button type="button">Unidade 1</button></a></li>
+            <li><a href="../unidade2/unid2.html"><button type="button">Unidade 2</button></a></li>
+            <li><a href="../unidade3/unid3.html"><button type="button">Unidade 3</button></a></li>
+        
+        </ul>
+        </nav>
+    <script>
+        
+    </script>
+    <style>
+        div{
+        width: 800px;
+        text-align: center;
+    }
+        p {
+            text-align: justify;
+            text-align: center;
+            text-indent: 50px;
+        }
+        h3{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="unidade3">
+       <h1> GERENCIAMENTO DE QUALIDADE DE SOFTWARE: PADRÕES, VALIDAÇÃO E TESTES DE SOFTWARE; GOVERNANÇA DE TECNOLOGIA DA INFORMAÇÃO</h1>
+<h2>TÓPICO 1 <br>GERENCIAMENTO DE QUALIDADE DE SOFTWARE: PADRÕES, NORMAS E MODELOS</h2>
+<h3>1 INTRODUÇÃO</h3>
+O termo Qualidade, dependendo do ponto de vista e do grau de importância, está relacionado a uma série de aspectos, algo difícil de ser definido e ainda mais difícil de ser garantido em qualquer necessidade. No caso de um curso de graduação on-line, fatores como matriz curricular, material didático e formação acadêmica dos professores têm estreita relação com a qualidade.
+
+Pensa-se em qualidade como algo dispendioso e caro de se obter, pois nos parece lógico que uma alta qualidade requer mais testes, inspeções, ajustes e cuidados extras durante a implementação e entrega de um serviço ou produto de software. Qualidade é a efetividade dos nossos produtos e serviços em satisfazer os nossos clientes. É “O que” nós fornecemos ao cliente, julgado certo ou errado somente pelo cliente, baseado nas suas expectativas e percepções.
+
+O objetivo principal da gerência de qualidade é obter assertividade e produtividade durante a execução de nossas atividades. Portanto, produtividade pode ser definida com a eficiência com a qual se prove a qualidade requerida pelos clientes. É o “Como” fornecemos serviços e produtos de qualidade.
+
+Na área de prestação de serviços, produtividade (rapidez, eficiência) é usualmente um dos principais critérios de qualidade definido pelo cliente: portanto um prestador de serviços deve considerar “Produtividade” como um elemento ou aspecto principal da “qualidade”.
+
+Em desenvolvimento de software a qualidade deve ser entendida nos aspectos da correta compreensão dos requisitos do cliente, quando se desenvolve o projeto com zero defeito, quando se obtêm aumento de produtividade e redução de custos e, por fim, uma boa usabilidade do Sistema. A qualidade está fortemente relacionada à conformidade com os requisitos, ou seja, atender ao que o usuário pede formalmente. Na área de Engenharia de Software, Roger Pressman (2011) define qualidade como “Conformidade a requisitos funcionais e de desempenho explicitamente declarados, a padrões de desenvolvimento claramente documentados e a características implícitas que são esperadas de todo software profissionalmente desenvolvido”.
+
+A Organização Internacional de Padronização (International Organization for Standardization - ISO) através da ISO 9000 define qualidade como a totalidade das características de uma entidade que lhe confere a capacidade de satisfazer às necessidades explícitas e implícitas. Necessidades explícitas são as condições e objetivos propostos por aqueles que produzem o software. As necessidades implícitas são necessidades subjetivas dos usuários, também chamadas de fatores externos, e podem ser percebidas tanto pelos desenvolvedores quanto pelos usuários (ISO, 2015).
+
+2 ABORDAGENS DA QUALIDADE
+Para entender melhor a abordagem da qualidade implantada há quase 70 anos nas indústrias seguem algumas das principais características conforme alguns idealizadores da qualidade (VASCONCELOS, 2006):
+
+Armand Feigenbaum era estudante de doutorado no Massachusetts Institute of Technology nos anos 1950, quando introduziu o conceito de Controle da Qualidade Total que representa um sistema efetivo que integra a qualidade do desenvolvimento, qualidade de manutenção e esforços de melhoria da qualidade de vários grupos em uma organização.
+Joseph M. Juran foi um educador chave em gerência da qualidade para os japoneses, que difundiram sua teoria. Ele fundamentou sua abordagem em três processos básicos: Planejamento da Qualidade: ser iniciado com a determinação das necessidades do cliente, seguido da definição de requisitos básicos para que o produto ou serviço atenda às expectativas do cliente. Controle da Qualidade: uma vez estabelecidos direcionamentos e processos para desenvolvimento dos produtos e serviços, garante o grau de qualidade e produtividade previamente estabelecido. Melhoria da Qualidade: a identificação de oportunidades de melhoria, assim como o estabelecimento de responsabilidades para execução dessas melhorias e divulgação de resultados.
+Philip B. Crosby iniciou seus estudos na década de 1960 e defendeu que a qualidade pode ser vista em quatro “certezas” do gerenciamento da qualidade: qualidade significa atendimento aos requisitos; qualidade vem através de prevenção; padrão para desempenho da qualidade e “defeitos zero”; e a medida de qualidade é o preço da não conformidade.
+Os principais gurus da Qualidade Mundial são entre outros: Armand Feigenbaum, William Edwards Deming, Joseph M. Juran, Karou Ishikawa e Tom Peters. A seguir apresento um texto completo dos pesquisadores mais reconhecidos na área: <https://bit.ly/3dwIL3X>. Boa leitura!
+
+
+Uma das principais formas de implementação do controle de qualidade é a utilização do Ciclo PDCA (Plan-Do-Check-Action), que consiste em quatro fases: planejar, fazer, checar e agir corretamente. O PDCA deve ser utilizado para todas as organizações na definição de uma metodologia de controle ou melhoria de qualquer tipo de processo.
+
+FIGURA 53 – CICLO PDCA PARA MELHORIA
+
+
+
+Gostaria de contribuir com o audiobook, descrevendo textualmente esta imagem?
+FONTE: Disponível em: <https://bit.ly/2YauQdA>. Acesso em: 20 set. 2015.
+
+
+Na fase Plan, o foco está na identificação do problema, análise do processo atual e definição do plano de ação para melhoria do processo em questão. Na fase Do, o plano de ação definido deve ser executado e controlado.  Em Check, verificações devem ser realizadas, a fim de subsidiar ajustes e se tirar lições de aprendizagem. Finalmente, em Action, deve-se atuar corretivamente para fundamentar um novo ciclo, garantindo a melhoria contínua (VASCONCELOS et al., 2006).
+
+A partir de 1947 a ISO formalizou a necessidade da definição de padrões e normas internacionais que contribuam para um PDCA direcionado a gestão da qualidade aplicada para produção, serviços e gerenciamento de um produto, desde seu pedido, passando pela análise e gerenciamento de requisitos, fabricação até entrega ao cliente, incluindo infraestrutura adequada, competências e comprometimento da alta administração. 
+
+3 TOTAL QUALITY MANAGEMENT (TQM)
+O gerenciamento da qualidade de software teve origem no Total Quality Management (TQM) à medida que as organizações começaram a buscar na sua cultura aplicar a melhoria de processos, produtos e serviços a fim de obter maior eficácia, eficiência e satisfação organizacional.
+
+Kan (1995) descreve os seguintes elementos-chave do TQM, conforme demonstrado graficamente na figura a seguir:
+
+Foco no cliente: consiste em analisar os desejos e necessidades, bem como definir os requisitos do cliente, além de medir e gerenciar a satisfação do cliente;
+Melhoria de processo: o objetivo é reduzir a variação do processo e atingir a melhoria contínua do processo. Processos incluem tanto processos de negócio quanto processo de desenvolvimento de produtos;
+Aspecto humano: nesse contexto, as áreas-chave incluem liderança, gerência, compromisso, participação total e outros fatores sociais, psicológicos e humanos;
+Medição e análise: o objetivo é gerenciar a melhoria contínua em todos os parâmetros de qualidade por um sistema de medição orientado a metas.
+FIGURA 54 – ELEMENTOS-CHAVE DO TQM
+
+
+
+Descrever
+FONTE: Adaptado de: Kan (1995)
+
+
+O TQM dividiu o desenvolvimento de software em dois momentos: a fase do software artesanal e a do software profissional. Na fase artesanal, antes da definição de Engenharia de Software em 1969, o software era em geral desenvolvido e testado continuamente até se chegar a algo que funcionasse e que o cliente pudesse aceitar. Na fase profissional, já a era da Engenharia de software, além de funcionar e ser aceito pelo cliente, o software precisava ser padronizado, documentado e com boa relação custo/benefício (HIRAMA, 2012).
+
+4 INTRODUÇÃO À QUALIDADE DE SOFTWARE
+Qualidade de software está relacionada a entregar ao cliente o produto final que satisfaça suas expectativas, dentro daquilo que foi acordado inicialmente por meio dos requisitos do projeto. Nesse contexto, qualidade de software que objetiva garantir essa qualidade pela definição de processos de desenvolvimento (ENGHOLM JR., 2010).
+
+Para produzir um produto de software com qualidade deve-se possuir processos formais que visem à prevenção e detecção de defeitos durante o desenvolvimento de software. A origem do produto se dá pela implementação de um processo consistente e em constante melhoria contínua.
+
+FIGURA 55 – DESENVOLVIMENTO DE PRODUTO DE SOFTWARE
+
+
+
+Descrever
+FONTE:  O autor
+
+
+Várias técnicas são utilizadas para identificar defeitos nos produtos de trabalho. Esses defeitos são eliminados através de retrabalho, que têm efeito imediato na produtividade do projeto. Defeitos também são encontrados em atividades de teste e podem ser analisados, a fim de se identificar suas causas. A partir dessa análise, lições aprendidas podem ser usadas para criar futuros produtos e prevenir futuros defeitos e, dessa forma, ter impacto positivo na qualidade do produto e na produtividade do projeto.
+
+FONTE: Disponível em: <https://bit.ly/2ByRlkx>. Acesso em: 8 out. 2015.
+
+Todo processo de software deve possuir junto ao plano de projeto uma documentação específica da qualidade, denominada como plano de qualidade que deve compreender informações sobre como a equipe de qualidade irá garantir o cumprimento da política de qualidade, no contexto do programa ou projeto a serem desenvolvidos, quais métodos, técnicas, métricas, treinamentos e padrões devam ser utilizados ao longo de todo o ciclo de vida do projeto. O plano deve oferecer a base do gerenciamento dos riscos, dos testes, das inspeções, das auditorias e como deverão ocorrer os reportes de problemas e ações corretivas.
+
+Pode-se citar entre tantos outros exemplos, que a técnica de prevenção de defeitos em um processo de desenvolvimento de software se dá pelo uso de instruções de procedimentos (padrões formais), treinamentos, documentação, modelagem e reengenharia, já as técnicas de detecção de defeitos podem ser pela análise de código; revisão por pares; testes, auditorias, verificações e validações.
+
+4.1 GARANTIA E CONTROLE DA QUALIDADE DE SOFTWARE
+Na gestão da qualidade de software existem diversas atividades voltadas à garantia da qualidade e ao controle de qualidade de software. A primeira é para a definição padronizada das atividades voltadas a prevenção de defeitos e problemas, que podem surgir nos produtos de trabalho. Área que define padrões, metodologias, técnicas e ferramentas de apoio ao desenvolvimento tendo como entrada o plano de qualidade de software e os resultados de medições de qualidade. A segunda é voltada para o monitoramento de resultados específicos do projeto, ou seja, a detecção de defeitos, executadas através do uso de técnicas que incluem revisões por pares, teste e análise de tendências, entre outras. Abaixo consta a tabela com as principais diferenças entre elas (VASCONCELOS et al., 2006).
+
+TABELA 14 – GARANTIA DE QUALIDADE X CONTROLE DE QUALIDADE
+
+
+
+Descrever
+FONTE: Disponível em: <http://slideplayer.com.br/slide/3692245/>. Acesso em: 20 set. 2015.
+
+
+Para Kerzner (1998), o custo de qualidade é categorizado em custos de prevenção, custos de avaliação, custos de falhas internas e custos de falhas externas a fim de despender mais esforço em prevenção e detecção para assim reduzir defeitos. Conforme ilustrado na figura a seguir, existe um ponto ótimo de equilíbrio entre os diferentes custos de qualidade, que aponta um custo ideal total da qualidade. Vale salientar que esse ponto ótimo, no entanto, pode ser difícil de ser mensurado, considerando custos subjetivos de falhas externas, como a insatisfação do cliente, por exemplo.
+
+FIGURA 56 – BALANCEAMENTO DO CUSTO DA QUALIDADE
+
+
+
+Descrever
+FONTE: Harold Kerzner (1998)
+
+
+Para se obter um produto com qualidade, uma série de fatores são necessários: a qualidade do processo para um bom planejamento do projeto, a tecnologia de desenvolvimento utilizada através de ferramentas para construir o software, custo, tempo e cronograma implicam nos recursos financeiros e tempo que terá para fazer o software, sendo estes os principais limitadores devido a recursos financeiros insuficientes e prazos muitos curtos. Por último tem-se a qualidade das pessoas, que é o fator decisivo, uma equipe bem qualificada realiza um trabalho de qualidade.
+
+FIGURA 57 – PILARES DA QUALIDADE DE SOFTWARE
+
+
+
+Descrever
+FONTE: Disponível em: <https://bit.ly/2MtxmGa>. Acesso em: 19 set. 2015.
+
+
+5 PADRÕES, NORMAS E MODELOS DE QUALIDADE DE SOFTWARE
+Entre os principais objetivos da qualidade de software está a definição de técnicas e ferramentas para serem utilizadas durante o ciclo de vida do projeto, PADRONIZANDO a forma de realizar as atividades, um guia de trabalho proporcionando assertividade no projeto evitando erros humanos.
+
+Diversos padrões e normas de qualidade de software vêm sendo propostos ao longo dos anos. Essas normas têm sido fortemente adotadas nos processos de software das organizações em todo o mundo. As normas da International Organization for Standardization (ISO, 2015) são padrões internacionais que “especificam requisitos para um sistema gerencial de qualidade de uma organização”.
+
+Com o crescimento substancial das indústrias de software e, levando-se em conta que a produção de software apresenta características peculiares, a ISO tem trabalhado na definição de várias normas que podem ser utilizadas como guias e padrões para diversas áreas de atuação dentro do contexto da ciência da computação. A tabela a seguir apresenta algumas normas ISO aplicadas à qualidade de software, focadas em produto ou processo de software.
+
+TABELA 15 – NORMAS ISO PARA SUPORTE AO DESENVOLVIMENTO DE SOFTWARE
+
+
+
+Descrever
+Fonte: O autor
+
+
+A seguir serão apresentados estes principais padrões e normas internacionais utilizadas como suporte ao desenvolvimento de software nas organizações.
+
+5.1 NORMA ISO/IEC 9000
+A série de padrões ISO 9000 é um conjunto de documentos que engloba pontos referentes à garantia da qualidade em projeto, desenvolvimento, produção, instalação e serviços associados; objetivando a satisfação do cliente pela prevenção de não conformidades em todos os estágios envolvidos no ciclo da qualidade da empresa (BARDINE, 2015).
+
+Segundo Portella (2015), a ISO9000 compreende um conjunto de cinco normas da ISO 9000 a ISO 9004:
+
+ISO 9000: Normas de gestão da qualidade e de garantia da qualidade (definir norma mais adequada);
+ISO 9001: Modelo de garantia de qualidade em projeto, instalação, desenvolvimento, produção e assistência técnica (ampla);
+ISO 9002: Modelo de qualidade em produção e instalação (não tem atividade de desenvolvimento);
+ISO 9003: Modelo para garantia da qualidade em inspeção e ensaios finais (testes);
+ISO 9004: Gestão da qualidade e elementos do sistema da qualidade (diretrizes).
+Esta norma considera uma empresa como uma rede de processos interconectados e para um sistema de qualidade estar de acordo com a ISO, esses processos devem endereçar as áreas identificadas no padrão e devem ser documentados e praticados como desejado. Foram desenvolvidos para prover orientações para sua aplicação na especificação, desenvolvimento, instalação e suporte de softwares.
+
+A ISO 9000 e suas normas são as mais utilizadas nas organizações do mundo todo. Como complemento aos estudos, favor acessar este endereço: <http://www.coladaweb.com/administracao/iso-9000>. Boa leitura!
+
+
+5.2 NORMA ISO/IEC 12207
+O principal objetivo da norma ISO 12207 é o estabelecimento de uma estrutura comum utilizada como referência para os processos de ciclo de vida de software considerando que o desenvolvimento e a manutenção de software devem ser conduzidos da mesma forma que a disciplina de engenharia (ISO/IEC 12207:2008, 2015).
+
+A estrutura descrita na ISO 12207 utiliza-se de uma terminologia bem definida e é composta de processos, atividades e tarefas a serem aplicados em operações que envolvam, de alguma forma, o software, seja através de aquisição, fornecimento, desenvolvimento, operação ou manutenção. Essa estrutura permite estabelecer ligações claras com o ambiente de engenharia de sistemas, ou seja, aquele que inclui práticas de software, hardware, pessoal e negócios (LAHOZ, 2015).
+
+Segundo Batebyte (2015), a estrutura da norma foi concebida de maneira a ser flexível, modular e adaptável às necessidades de quem a utiliza. Para isso, está fundamentada em dois princípios básicos: modularidade e responsabilidade. Modularidade, no sentido de processos com mínimo acoplamento e máxima coesão. Responsabilidade, no sentido de estabelecer um responsável único por cada processo, facilitando a aplicação da norma em projetos, onde várias pessoas podem estar legalmente envolvidas.
+
+FIGURA 58 – PROCESSO DA ISO 12207
+
+
+
+Descrever
+FONTE: Disponível em: <https://bit.ly/3h0Rca2>. Acessado em: 24 set. 2015.
+
+
+A ISO 12207 pode ser utilizada com qualquer modelo de ciclo de vida, método ou técnica de engenharia de software e linguagem de programação. Ela descreve uma série de atividades importantes para o desenvolvimento de software. São elas: Levantamento de Requisitos; Análise dos Requisitos do Software; Projeto da Arquitetura do Software; Projeto Detalhado do Software; Implementação; Codificação e testes; Integração; Teste de qualificação e Instalação (ISO/IEC 12207:2008, 2015).
+
+5.3 NORMA ISO/IEC 15504
+A ISO/IEC 15504 organiza e classifica as melhores práticas em duas dimensões: categorias de processo e níveis de capacidade. Cada uma das categorias de processo é detalhada em processos mais específicos, ou subcategorias (cliente-fornecedor, engenharia, projeto, suporte e organização) (LAHOZ; SANT’ANNA, 2015).
+
+Ainda segundo o mesmo autor, o modelo visa avaliar a capacidade da organização em cada processo, permitindo assim uma melhoria contínua. Cada um dos processos deve ser classificado em níveis (incompleto, executado, gerenciado, estabelecido, previsível e otimizado).
+
+O ISO15504 possui um conjunto de nove documentos que endereçam avaliação de processo, assessoria de treinamento e competência, determinação da capacidade e melhoria de processo e está se tornando um modelo de referência para outros padrões como o CMMI, patrocinado pelo Departamento de Defesa norte americano, com colaborações da indústria, governo e pelo SEI. O CMMI tem como um de seus objetivos básicos, integrar os diversos modelos CMM existentes, bem como pretende garantir compatibilidade com a ISO15504, através da sua visão contínua de modelo, composto por áreas de processos universais e fundamentais. Possui ainda uma outra dimensão composta por uma métrica para a avaliação da capacidade de cada processo em uma organização (LAHOZ; SANT’ANNA, 2015).
+
+
+FIGURA 59 – MODELO DE AVALIAÇÃO
+
+
+
+Descrever
+FONTE: Oliveira e Lima (2012)
+
+
+A ISO/IEC 15504, também conhecida como SPICE, é a norma ISO/IEC que define processo de desenvolvimento de software. Ela é uma evolução da ISO/IEC 12207, mas possui níveis de capacidade para cada processo assim como o CMMI. Este modelo de referência possui uma abordagem bidimensional:
+
+FIGURA 60 – AS DIMENSÕES DO MODELO DE REFERÊNCIA DA ISO 15504
+
+
+
+Descrever
+FONTE: Disponível em: <https://bit.ly/3cy6pvz>. Acessado em: 18 set. 2015.
+
+
+A primeira dimensão auxilia os engenheiros de processo na definição dos processos necessários em uma organização de desenvolvimento de software. A segunda dimensão tem por objetivo determinar a capacidade do processo, avaliando-o através de um conjunto de atributos pré-estabelecidos.
+
+Segundo a norma, uma avaliação de processo de software é uma investigação e análise disciplinada de processos selecionados de uma unidade organizacional em relação a um modelo de avaliação de processo.
+
+Conforme {TR}Sampaio (2014), o processo de desenvolvimento de software definido pela ISO 15504 é divido em duas categorias principais de processos:
+
+Processos Primários contempla os processos de Aquisição, Fornecimento, Elicitação de Requisitos, Operação e categoria de Engenharia de Software.
+Processos Organizacionais contempla os processos de Gestão da qualidade; Gestão de riscos; Medição; Processos de Melhoria de Processos, Processos de Recursos e Infraestrutura e Processos de Reúso.
+5.4 NORMA ISO/IEC ISO 9126
+A ISO 9126 estabelece um modelo de qualidade para o produto de software que são avaliados conforme seis categorias básicas que são subdivididas em algumas características que são importantes para cada categoria (VENEZIANI, 2015):
+
+Funcionalidade: Capacidade de o software atender às necessidades do cliente.
+Confiabilidade: Segurança que o cliente tem para utilizar o software.
+Usabilidade: Facilidade do uso e entendimento das funcionalidades do sistema.
+Eficiência: Tempo necessário para a execução das funcionalidades dentro do “padrão”.
+Manutenibilidade: Facilidade para dar manutenção quando necessário.
+Portabilidade: Capacidade de adaptação do software para diversas plataformas.
+FIGURA 61 – CATEGORIAS DA ISO 9126
+
+
+
+Descrever
+FONTE: Disponível em: <https://luizladeira.files.wordpress.com/2012/09/iso.jpg>. Acesso em: 24 set. 2015.
+
+
+A norma ISO/IEC 9126, ou conjunto de normas que trata deste assunto no âmbito da ISO, estabelece um modelo de qualidade com os seguintes componentes (ISO/IEC 9126, 2004):
+
+Processo de desenvolvimento, cuja qualidade afeta a qualidade do produto de software gerado e é influenciado pela natureza do produto desenvolvido;
+Produto, compreendendo os atributos de qualidade do produto (sistema) de software. Estes atributos de qualidade podem ser divididos entre atributos internos e externos. Estes se diferenciam pela forma como são aferidos (interna ou externamente ao produto de software) e em conjunto compõem a qualidade do produto de software em si;
+Qualidade em uso, que consiste na aferição da qualidade do software em cada contexto específico de usuário. Esta é, também, a qualidade percebida pelo usuário.
+A parte 01 da ISO 9126 pode ser usada para especificar requisitos funcionais e não-funcionais do cliente e do usuário. Para maiores informações segue link: <http://luizcamargo.com.br/arquivos/NBR%20ISO_IEC%209126-1.pdf>. Boa leitura!
+
+
+5.5 NORMA ISO/IEC 27000
+A ISO 27000 trata sobre a área de segurança da informação e possui as seguintes famílias:
+
+ISO 27001 – Requisitos do SGSI;
+ISO 27002 – Controles de Segurança;
+ISO 27003 – Diretrizes de Implementação;
+ISO 27004 – Medição;
+ISO 27005 – Gestão de Risco;
+ISO 27006 – Auditoria de Segurança.
+Geralmente, quando se fala em Segurança da Informação, o tema é associado a hackers e vulnerabilidades em sistemas, onde o principal entendimento é de que a empresa precisa de um bom antivírus, um firewall e ter todos os seus “patches” aplicados no ambiente tecnológico. Não há dúvida de que são questões importantes, porém a Segurança da Informação não está limitada a somente esses pontos.
+
+É de praxe que as empresas protejam seus ativos de valor, tenham responsabilidade social e pratiquem a boa governança. Muitas organizações são obrigadas a cumprir legislação específica ou seguir regras definitivas para seu grupo de negócio. Assim, se faz necessário implementar e gerenciar práticas de Segurança da Informação. A série ISO/IEC27000 estabelece as normas para os Sistemas de Gerenciamento de Segurança da Informação:
+
+ISO/IEC 27000: Information Security Management Systems – Overview and Vocabulary (Vocabulário de Gestão da Segurança da Informação)
+ISO/IEC 27001: Information Security Management Systems – Requiremen (Sistema de Gestão de Segurança da Informação - Requisitos), 2013.
+ISO/IEC 27002: Code of Practice for Information Security Management (Código de Práticas para Controle da Segurança da Informação), 2013.
+ISO/IEC 27003: Information Security Management System Implementation Guidance (Diretrizes para Implantação de um Sistema de Gestão da Segurança da Informação), 2011.
+ISO/IEC 27004: Information Security Management Measurements (Gestão da Segurança da Informação — Medição), 2010.
+ISO/IEC 27005: Information Security Risk Management (Gestão de Riscos de Segurança da Informação), 2011.
+ISO/IEC 27006: Requirements for Bodies Providing Audit and Certification of Information Security Management Systems (Requisitos para Organismos que Prestam Auditoria e Certificação de Sistemas de Gestão de Segurança da Informação).
+FONTE: Segurança da Informação: Padrões de Segurança da Informação. Universidade Estácio de Sá. 2015. Disponível em: <https://bit.ly/2XxTHZv>. Acesso em: 24 set. 2015.
+
+5.6 NORMA ISO/IEC 15939
+A ISO 15939 define um processo de medição aplicáveis a sistemas, engenharia de software e disciplinas de gestão. Conforme PSMC (2015) a norma cobre as atividades de medição, as informações necessárias, a aplicação de resultados de análises de medição, e determina se os resultados da análise são válidos. O padrão pode ser usado tanto por fornecedores de sistemas e adquirentes.
+
+FIGURA 62 – MODELO DE PROCESSO DE MEDIÇÃO
+
+
+
+Descrever
+FONTE: Disponível em: <https://bit.ly/372qZDj>. Acessado em: 24 set. 2015.
+
+
+O processo está descrito por meio de um modelo que define as atividades do processo de medição que são necessários para especificar adequadamente os compromissos, como as medidas e os resultados da análise devem ser aplicados, como determinar se os resultados da análise são válidos.
+
+6 MODELOS CMMI E MPS.BR
+Além dos Padrões e Normas listadas anteriormente, a área de qualidade possui diversos modelos de qualidade nas empresas de tecnologia, a seguir serão apresentados sobre o CMMI e MPS.BR, os modelos mais difundidos nas indústrias de software no Brasil.
+
+6.1 CMMI (CAPABILITY MATURITY MODEL INTEGRATION): INTEGRAÇÃO DOS MODELOS DE CAPACITAÇÃO E MATURIDADE DE SISTEMAS
+Há forte demanda por produtos de software em todos os setores da economia, mas a oferta é também ampla, e a concorrência pela melhor qualidade é acirrada. As empresas estão hoje solicitadas/exigidas a mostrar sua competência técnica, operacional e gerencial, o que requer a demonstração de controle sobre seus processos operacionais, tanto internos quanto os pertinentes às relações externas, especialmente com clientes e fornecedores.
+
+Experiências mostram que empresas trabalham melhor quando focam seus esforços de melhoria em um número gerenciável de áreas de processos que requerem esforços cada vez mais sofisticados à medida que a organização evolui.
+
+A respeitabilidade e amplitude de aceitação do modelo CMMI são correntemente uma exigência e um passaporte para comercialização de produtos e soluções de software.
+
+Os níveis de maturidade fornecem uma maneira de prever o desempenho da organização dentro de cada disciplina ou conjunto de disciplinas. São estágios evolutivos bem definidos em busca de um processo maduro. Cada nível estabelece uma parte importante do processo da empresa. Nos modelos CMMI com representação em estágios que caracterizam o nível de capacidade do processo, existem cinco níveis de maturidade designados pelos números de 1 a 5.
+
+Conforme tradução livre da documentação da SEI – Software Engineering Institute da Universidade Carnagie Mellon, segue a explicação de cada um destes níveis de maturidade:
+
+FIGURA 63 – VISÃO GERAL DO CMMI 
+
+
+
+Descrever
+FONTE: Disponível em: <http://www.dei.unicap.br/~almir/seminarios/2005.1/ns06/pmi/CMM.htm>. Acesso em: 21 set. 2015.
+
+
+CMMI é um dos modelos mais aceitos para a melhoria da qualidade e do processo de software em todo o mundo e define os princípios e práticas que devem ser aplicados a uma organização para atingir estágios evolutivos de maturidade em seu processo de software.
+
+TABELA 16 – NÍVEIS DE MATURIDADE DO CMMI
+
+
+
+Descrever
+FONTE: O autor
+
+
+Hoje, mais de 3 mil organizações em todo o mundo, e mais de 100 no Brasil têm o modelo CMMI implantado e estão no nível 2 ou superior. Para maiores informações sobre seu crescimento no mundo segue aqui o link com os resultados da última conferência realizada pela SEI: <http://www.sei.cmu.edu/sema/profile.html>.
+
+
+TABELA 17 – ÁREAS-CHAVE DE PROCESSOS DE ENGENHARIA DE SOFTWARE QUE UTILIZAM O MODELO CMMI
+
+
+
+Descrever
+FONTE: O autor
+
+
+A criação do CMMI por parte do SEI teve a intenção de suportar a melhoria de processos e produtos reduzindo a redundância e eliminando as inconsistências quando da utilização de modelos isoladamente. O objetivo é melhorar a eficiência, o retorno em investimento e a efetividade através da utilização de um modelo que integra disciplinas como engenharia de sistemas e engenharia de software que são inseparáveis no desenvolvimento de um sistema.
+
+O principal propósito do CMMI é fornecer diretrizes baseadas em melhores práticas para a melhoria dos processos e habilidades organizacionais, cobrindo o ciclo de vida de produtos e serviços completos, nas fases de concepção, desenvolvimento, aquisição, entrega e manutenção. Neste sentido, suas abordagens envolvem a avaliação da maturidade da organização ou a capacitação das suas áreas de processo, o estabelecimento de prioridades e a implementação de ações de melhoria. (FERNANDES, 2012, p. 204).
+
+6.2 MELHORIA DE PROCESSO DE SOFTWARE BRASILEIRO (MPS.BR)
+Segundo Softex (2014), o MPS.BR é um programa que foi criado em 2003 pela própria Softex para melhorar a capacidade de desenvolvimento de software nas empresas brasileiras. A iniciativa foi responsável pelo desenvolvimento do Modelo de Referência para Melhoria do Processo de Software Brasileiro (MPS-SW), que levou em consideração normas e modelos internacionalmente reconhecidos, boas práticas de engenharia de software e as necessidades de negócio da indústria de software nacional.
+
+Segundo Sodré (2015), o MPS.BR possui as seguintes metas:
+
+a) definir e implementar o Modelo de Referência para Melhoria de Processos de Software (MR mps) em 120 empresas, até junho de 2006, com perspectiva de mais de 160 empresas nos dois anos subsequentes;
+
+b) criar cursos em diversos locais do país para capacitar e formar consultores do modelo;
+
+c) credenciar instituições e centros tecnológicos capacitados a implementar e avaliar o modelo com foco em grupo de empresas.
+
+Foram criados dois modelos: o Modelo de Referência para Melhoria do Processo de Software (MR mps) e o Modelo de Negócio para Melhoria de Processo de Software (MN mps). Este modelo de negócios prevê duas situações (SODRÉ, 2015):
+
+a) a implementação do MR mps de forma personalizada para uma empresa (MNE – Modelo de Negócio Específico);
+
+b) a implementação do MR mps de forma cooperada em grupo de empresas (MNC – Modelo de Negócio Cooperado), é um modelo mais acessível às micro, pequenas e médias empresas por dividir de forma proporcional parte dos custos entre as empresas e por se buscar outras fontes de financiamento.
+
+Na figura a seguir é possível observar os sete níveis de classificação do MPS.BR (FUMSOFT, 2015).
+
+FIGURA 64 – NÍVEIS MPS.BR
+
+
+
+Descrever
+FONTE: Fumsoft. Disponível em: <http://www.fumsoft.org.br/qualidade/modelo_mpsbr>. Acesso em: 26 set. 2015.
+
+
+Segundo Antonioni (2007), o MPS.BR é dividido em sete níveis de maturidade, processos e atributos, conforme exibido na tabela a seguir:
+
+TABELA 18 – 7 NÍVEIS DE MATURIDADE, PROCESSOS E ATRIBUTOS
+
+
+
+Descrever
+FONTE: Antonioni (2007)
+
+
+O MPSBR (Melhoria do Processo de Software Brasileiro), que segundo Groffe (2013), foi criado no Brasil por instituições ligadas ao desenvolvimento de software brasileiras, entre as quais estão: Softtex(SP), RioSoft(RJ), COPPE/UFRJ (RJ) e CESAR (PE). O MPSBR, conforme o autor, tem como base práticas usadas internacionalmente para a melhoria dos processos de software, como o CMMI, e por isso tem compatibilidade com vários processos de qualidade, como o citado anteriormente. Assim como o CMMI o MPSBR classifica a maturidade dos processos em níveis, mas não em cinco e sim em sete níveis, do G, nível mais baixo, ao A, nível mais alto, e a proposta para cada nível é, de acordo com Groffe (2013):
+
+G – Parcialmente Gerenciado: neste ponto deve-se iniciar o gerenciamento de requisitos e projetos;
+F – Gerenciado: introduz controles de mediação, gerência de configuração, conceitos de aquisição e garantia de qualidade;
+E – Parcialmente Definido: considera processos como treinamento, adaptação de processos para gerência de projetos, além da preocupação com a melhoria e o controle do processo organizacional;
+D – Largamente Definido: envolve validação, verificação, liberação, instalação e integração de produtos e outras atividades;
+C – Definido: ocorre a gerência de riscos;
+B – Gerenciado Quantitativamente: avalia-se o desempenho dos processos e a gerência quantitativa dos mesmos;
+A – Otimização: preocupação com a inovação e análise de causas.
+6.3 COMPARAÇÃO CMMI E MPS.BR
+Ambos os modelos possuem níveis de maturidade que definem a capacidade das empresas em trabalhar com projetos grandes e complexos. O CMMI por sua vez possui os níveis do 1 ao 5 e o MPS.BR possui os níveis do G ao A, sendo que ao contrário do CMMI, o primeiro nível do MPS.BR já exige que a empresa tenha determinados processos identificados (ISTITUTO DE SOFTWARE, 2015).
+
+A tabela a seguir representa a correlação entre CMMI e MPS.BR, respectivamente, nela estão caracterizadas as principais semelhanças contidas nos dois modelos.
+
+TABELA 19 – CORRELAÇÃO ENTRE OS MODELOS CMMI E MPS.BR
+
+
+
+Descrever
+FONTE: Franciscani (2015)
+
+
+Segundo Franciscani (2015 apud OLIVEIRA, 2008) existem medições entre os modelos e as comparações entre eles podem ser visualizadas na tabela a seguir. 
+
+TABELA 20 – COMPARATIVO ENTRE OS MODELOS CMMI E MPS.BR
+        
+    </div>
+</body>
