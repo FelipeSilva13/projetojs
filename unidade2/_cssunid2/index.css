@@ -42,13 +42,11 @@ h1#unidade2{
 
 }
 h1#menu{
+    
     display: none;
 }
-p {
-    text-align: justify;
-    text-align: center;
-    text-indent: 50px;
-}
+
+
 h3{
     text-align: center;
 }
