@@ -1,0 +1,16 @@
+{
+  "name": "projeto-livro",
+  "version": "1.0.0",
+  "description": "Engenharia e Projeto de Software - Livro Interativo",
+  "main": "index.html",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

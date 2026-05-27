@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Engenharia e Projeto de Software - Livro Interativo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-primary: #6366f1;
+            --accent-secondary: #a855f7;
+            --accent-tertiary: #0ea5e9;
+            --gradient-1: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            --gradient-2: linear-gradient(135deg, #3b82f6 0%, #0ea5e9 100%);
+            --gradient-3: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+            --glow-color: rgba(99, 102, 241, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 40%);
+            position: relative;
+        }
+
+        /* Abstract glowing particles in background */
+        .bg-glow-1 {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 300px;
+            height: 300px;
+            background: var(--accent-primary);
+            filter: blur(150px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .bg-glow-2 {
+            position: absolute;
+            bottom: 20%;
+            right: 10%;
+            width: 350px;
+            height: 350px;
+            background: var(--accent-secondary);
+            filter: blur(150px);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 1rem 2rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .book-badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 9999px;
+            color: #818cf8;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.1);
+        }
+
+        h1.main-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #fff 30%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        h1.main-title span {
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Dashboard Stats Grid */
+        .dashboard-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .meta-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .meta-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .meta-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .meta-icon.blue {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--accent-tertiary);
+        }
+
+        .meta-icon.purple {
+            background: rgba(168, 85, 247, 0.1);
+            color: var(--accent-secondary);
+        }
+
+        .meta-icon.green {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+        }
+
+        .meta-info h4 {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .meta-info p {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            margin-top: 0.2rem;
+        }
+
+        /* Unit Portal Cards */
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .unit-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Glowing overlay */
+        .unit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255, 255, 255, 0.06), transparent 40%);
+            z-index: 3;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .unit-card:hover::before {
+            opacity: 1;
+        }
+
+        .unit-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--glow-color);
+        }
+
+        .unit-card-glow {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.15;
+            z-index: 0;
+            transition: all 0.3s ease;
+        }
+
+        .unit-card:hover .unit-card-glow {
+            opacity: 0.3;
+            transform: scale(1.5);
+        }
+
+        .card-header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .unit-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .unit-1-tag {
+            background: rgba(99, 102, 241, 0.15);
+            color: #818cf8;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .unit-2-tag {
+            background: rgba(168, 85, 247, 0.15);
+            color: #c084fc;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        .unit-3-tag {
+            background: rgba(14, 165, 233, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+        }
+
+        .unit-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--text-primary);
+        }
+
+        .card-body {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .unit-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .topics-list {
+            list-style: none;
+        }
+
+        .topics-list li {
+            font-size: 0.88rem;
+            color: var(--text-primary);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            line-height: 1.4;
+        }
+
+        .topics-list li svg {
+            width: 16px;
+            height: 16px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .btn-access {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-1 {
+            background: var(--gradient-1);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+        .btn-1:hover {
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5), 0 0 10px rgba(99, 102, 241, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn-2 {
+            background: var(--gradient-2);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        .btn-2:hover {
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5), 0 0 10px rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn-3 {
+            background: var(--gradient-3);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        .btn-3:hover {
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5), 0 0 10px rgba(16, 185, 129, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Info Section */
+        .info-section {
+            background: linear-gradient(180deg, rgba(17, 24, 39, 0.4) 0%, rgba(17, 24, 39, 0.8) 100%);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            backdrop-filter: blur(12px);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .info-section {
+                padding: 2rem;
+            }
+        }
+
+        .info-col h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .info-col p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-tag {
+            font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--card-border);
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <header>
+            <div class="book-badge">Material Didático Digital</div>
+            <h1 class="main-title">Engenharia e <br><span>Projeto de Software</span></h1>
+            <p class="subtitle">Acesse o conteúdo completo do livro de forma interativa, navegando pelas unidades temáticas e aprofundando-se nos principais tópicos da engenharia de software.</p>
+        </header>
+
+        <!-- Metadata dashboard -->
+        <div class="dashboard-meta">
+            <div class="meta-card">
+                <div class="meta-icon blue">📖</div>
+                <div class="meta-info">
+                    <h4>Total de Unidades</h4>
+                    <p>3 Grandes Unidades</p>
+                </div>
+            </div>
+            <div class="meta-card">
+                <div class="meta-icon purple">⚙️</div>
+                <div class="meta-info">
+                    <h4>Abordagem</h4>
+                    <p>Qualidade & Projetos</p>
+                </div>
+            </div>
+            <div class="meta-card">
+                <div class="meta-icon green">🚀</div>
+                <div class="meta-info">
+                    <h4>Recursos</h4>
+                    <p>Ambiente Interativo</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Units Grid -->
+        <div class="units-grid">
+            
+            <!-- Unidade 1 -->
+            <div class="unit-card" style="--glow-color: rgba(99, 102, 241, 0.15)">
+                <div class="unit-card-glow" style="background: var(--accent-primary)"></div>
+                <div>
+                    <div class="card-header">
+                        <span class="unit-tag unit-1-tag">Unidade 1</span>
+                        <h2 class="unit-title">Fundamentos e Ciclo de Vida</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="unit-desc">Explore a evolução histórica do software, os conceitos fundamentais da Engenharia de Software, as etapas do ciclo de vida e a gestão de requisitos.</p>
+                        <ul class="topics-list">
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" style="color: #818cf8;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                <span><strong>Tópico 1:</strong> Evolução histórica e características de hardware/software</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" style="color: #818cf8;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                <span><strong>Tópico 2:</strong> Crise do software e origens da Engenharia de Software</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" style="color: #818cf8;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                <span><strong>Tópico 3:</strong> Modelos de Ciclo de Vida (Cascata, Ágil, Prototipação, etc.)</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" style="color: #818cf8;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                <span><strong>Tópico 4:</strong> Engenharia de Requisitos (Funcionais e Não-Funcionais)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="unidade1/unid1.html" class="btn-access btn-1">
+                    <span>Acessar Unidade 1</span>
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+            </div>
+
+            <!-- Unidade 2 -->
+            <div class="unit-card" style="--glow-color: rgba(168, 85, 247, 0.15)">
+                <div class="unit-card-glow" style="background: var(--accent-secondary)"></div>
+                <div>
+                    <div class="card-header">
+                        <span class="unit-tag unit-2-tag">Unidade 2</span>
+                        <h2 class="unit-title">Gestão de Projetos e Métricas</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="unit-desc">Conheça as melhores práticas em gerenciamento de projetos de software baseadas no PMBOK, além de métricas de estimativa e controle de versão.</p>
+                        <ul class="topics-list">
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" style="color: #c084fc;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                <span><strong>Tópico 1:</strong> Introdução ao Gerenciamento de Projetos e PMBOK</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" style="color: #c084fc;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                <span><strong>Tópico 2:</strong> Áreas de Conhecimento e as 5 fases do gerenciamento</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" style="color: #c084fc;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                <span><strong>Tópico 3:</strong> Gestão de Riscos, Equipes e Pessoas em Projetos</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" style="color: #c084fc;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                <span><strong>Tópico 4:</strong> Estimativas de Software, Métricas (PF) e Git/Configuração</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="unidade2/unid2.html" class="btn-access btn-2">
+                    <span>Acessar Unidade 2</span>
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+            </div>
+
+            <!-- Unidade 3 -->
+            <div class="unit-card" style="--glow-color: rgba(14, 165, 233, 0.15)">
+                <div class="unit-card-glow" style="background: var(--accent-tertiary)"></div>
+                <div>
+                    <div class="card-header">
+                        <span class="unit-tag unit-3-tag">Unidade 3</span>
+                        <h2 class="unit-title">Qualidade, Normas e Governança</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="unit-desc">Domine a gestão da qualidade de software, conhecendo os principais padrões e normas da ISO, além dos modelos de maturidade mais requisitados.</p>
+                        <ul class="topics-list">
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" style="color: #38bdf8;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                <span><strong>Tópico 1:</strong> Garantia, Controle e Custos da Qualidade (TQM, PDCA)</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" style="color: #38bdf8;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                <span><strong>Tópico 2:</strong> Normas ISO essenciais (ISO 9000, 12207, 15504, 9126)</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" style="color: #38bdf8;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                <span><strong>Tópico 3:</strong> Modelos CMMI e MPS.BR (Comparativo e Níveis)</span>
+                            </li>
+                            <li>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" style="color: #38bdf8;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                <span><strong>Tópico 4:</strong> Governança de TI e Melhores Práticas Organizacionais</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="unidade3/unid3.html" class="btn-access btn-3">
+                    <span>Acessar Unidade 3</span>
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section">
+            <div class="info-grid">
+                <div class="info-col">
+                    <h3>Sobre o Livro</h3>
+                    <p>Este material foi elaborado com o objetivo de servir de guia didático para estudantes e profissionais da área de Tecnologia da Informação que buscam compreender os processos rigorosos, conceitos históricos e metodologias modernas na concepção de software profissional.</p>
+                    <p>Nesta versão interativa, você conta com um menu de navegação rápida em todas as páginas para alternar instantaneamente entre as unidades, garantindo uma experiência de leitura fluida e produtiva.</p>
+                </div>
+                <div class="info-col">
+                    <h3>Tecnologias Utilizadas</h3>
+                    <p>O portal e as unidades são construídos inteiramente em tecnologias web puras, priorizando compatibilidade ampla, carregamento instantâneo e design responsivo.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5 Semântico</span>
+                        <span class="tech-tag">CSS3 Avançado</span>
+                        <span class="tech-tag">Vite Servidor Dev</span>
+                        <span class="tech-tag">Design Glassmorphic</span>
+                        <span class="tech-tag">Layout Responsivo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 - Livro Didático Interativo: Engenharia e Projeto de Software. Desenvolvido por <a href="https://github.com/FelipeSilva13" target="_blank">Felipe Silva</a>.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Smooth interactive mouse glow effect for unit cards
+        const cards = document.querySelectorAll('.unit-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body>
+</html>
